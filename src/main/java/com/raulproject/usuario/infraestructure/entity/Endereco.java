@@ -1,10 +1,7 @@
 package com.raulproject.usuario.infraestructure.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,6 +9,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "endereco")
+@Builder
 public class Endereco {
 
     @Id
