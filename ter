@@ -1,0 +1,17 @@
+* [33mca5090a[m[33m ([m[1;31morigin/feature/atualizacoes[m[33m, [m[1;32mfeature/atualizacoes[m[33m)[m adicionado put de endereco e telefone
+* [33mcdfdef1[m inclusao de metodo put de usuario
+*   [33md55e49c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m Merge pull request #3 from brunelli1/feature/salva_usuario
+[32m|[m[33m\[m  
+* [33m\[m   [33m4b3de87[m Merge pull request #2 from brunelli1/feature/spring_security
+[34m|[m[35m\[m [33m\[m  
+* [35m\[m [33m\[m   [33m818eb90[m Merge pull request #1 from brunelli1/master
+[36m|[m[1;31m\[m [35m\[m [33m\[m  
+[36m|[m [1;31m|[m [35m|[m [33m|[m * [33me9d9d9f[m[33m ([m[1;31morigin/feature/requisicoes[m[33m, [m[1;32mfeature/requisicoes[m[33m)[m adicionados metodos get, delete e login
+[36m|[m [1;31m|[m [35m|[m [33m|[m[33m/[m  
+[36m|[m [1;31m|[m [35m|[m * [33m96b39fb[m[33m ([m[1;31morigin/feature/salva_usuario[m[33m, [m[1;32mfeature/salva_usuario[m[33m)[m adicionado método que salva usuarios
+[36m|[m [1;31m|[m [35m|[m[35m/[m  
+[36m|[m [1;31m|[m * [33mf16d645[m[33m ([m[1;31morigin/feature/spring_security[m[33m, [m[1;32mfeature/spring_security[m[33m)[m adicionada classes de security
+[36m|[m [1;31m|[m[1;31m/[m  
+[36m|[m * [33m4750aea[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m Create gradle.yml
+[36m|[m[36m/[m  
+* [33maaf4542[m commit inicial
