@@ -8,8 +8,8 @@ import com.raulproject.usuario.business.dto.UsuarioDTO;
 import com.raulproject.usuario.infraestructure.entity.Endereco;
 import com.raulproject.usuario.infraestructure.entity.Telefone;
 import com.raulproject.usuario.infraestructure.entity.Usuario;
-import com.raulproject.usuario.infraestructure.repository.EnderecoRepository;
-import com.raulproject.usuario.infraestructure.repository.TelefoneRepository;
+
+
 import com.raulproject.usuario.infraestructure.repository.UsuarioRepository;
 import com.raulproject.usuario.infraestructure.exceptions.ResourceNotFoundException;
 import com.raulproject.usuario.infraestructure.security.JwtUtil;
@@ -28,10 +28,14 @@ public class UsuarioService {
     private final EnderecoRepository enderecoRepository;
     private final TelefoneRepository telefoneRepository;
 
+
     public UsuarioDTO salvaUsuario(UsuarioDTO usuarioDTO){
+        emailExiste(usuarioDTO.getEmail());
+        usuarioDTO.setSenha(passwordEncoder.encode(usuarioDTO.getSenha()));
         Usuario usuario = usuarioConverter.paraUsuario(usuarioDTO);
         return usuarioConverter.paraUsuarioDTO(usuarioRepository.save(usuario));
     }
+
 
     public UsuarioDTO buscarUsuarioPorEmail(String email){
         try{
@@ -104,6 +108,29 @@ public class UsuarioService {
         Telefone telefone = usuarioConverter.paraTelefoneEntity(dto, usuario.getId());
         Telefone telefoneEntity = telefoneRepository.save(telefone);
         return usuarioConverter.paraTelefoneDTO(telefoneEntity);
+=======
+    public void emailExiste(String email){
+        try{
+            boolean existe = verificaEmailExistente(email);
+            if(existe){
+                throw new ConflitException("Email já cadastrado" + email);
+            }
+        }catch (ConflitException e){
+            throw new ConflitException("Email já cadastrado ", e.getCause());
+        }
+    }
+
+    public boolean verificaEmailExistente(String email){
+        return usuarioRepository.existsByEmail(email);
+    }
+
+    public Usuario buscarUsuarioPorEmail(String email){
+        return usuarioRepository.findByEmail(email).orElseThrow(
+                () -> new ResourceNotFoundException("Email não encontrado" + email));
+    }
+
+    public void deletaUsuarioPorEmail(String email){
+        usuarioRepository.deleteByEmail(email);
     }
 
 }
